@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() {
-	this->name = name;
+	this->name = "";
 	this->hit_points = 100;
 	this->energy_points = 50;
 	this->attack_damage = 20;
@@ -17,8 +17,8 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name){
 }
 
 ScavTrap::ScavTrap(const ScavTrap &cpy) : ClapTrap(cpy) {
-	cout << "ScavTrap Copy Constructor called" << endl;
 	*this = cpy;
+	cout << "ScavTrap Copy Constructor called" << endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &cpy){

@@ -2,17 +2,23 @@ NAME = fixed
 
 SRC = main.cpp Fixed.cpp
 
+OBJS = $(SRC:.cpp=.o)
+
 CPP = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@$(CPP) $(FLAGS) $(SRC) -o $(NAME)
+.o: .cpp
+	$(CPP) -c $< $(CPPFLAGS) $@
+
+$(NAME): $(OBJS)
+	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+
 
 clean:
-	@rm -rf $(NAME)
+	@rm -rf $(OBJS)
 
 fclean: clean
 	@rm -rf $(NAME)

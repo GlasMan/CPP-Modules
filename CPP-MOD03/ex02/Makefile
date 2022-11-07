@@ -1,6 +1,6 @@
-NAME = claptrap
+NAME = fragtrap
 
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
@@ -15,7 +15,6 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
-
 
 clean:
 	@rm -rf $(OBJS)

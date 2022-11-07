@@ -1,7 +1,15 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap() {
+	cout << "Default Constructor called for ClapTrap" << endl;
+	this->name = name;
+	this->hit_points = 10;
+	this->energy_points = 10;
+	this->attack_damage = 0;
+}
+
 ClapTrap::ClapTrap(std::string name) {
-	cout << "ClabTrap Constructor called" << endl;
+	cout << "ClapTrap Constructor called" << endl;
 	this->name = name;
 	this->hit_points = 10;
 	this->energy_points = 10;
@@ -26,25 +34,27 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &cpy) {
 }
 
 void ClapTrap::attack(const std::string &target) {
-	if (this->energy_points > 0) {
-		cout << "ClapTrap " << this->name << " attacks " << target << " causing " << this->attack_damage
+	if (this->energy_points > 0 && this->hit_points > 0) {
+		cout << "ClapTrap " << this->name << " attacking " << target << " causing " << this->attack_damage
 			 << " points of damage!" << endl;
 		this->energy_points--;
 	}else
-		cout << "Not enough energy points" << endl;
+		cout << "Not enough energy points or ClapTrap is dead!" << endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-	cout << "ClapTrap " << this->name << " taking damage";
+	cout << "ClapTrap " << this->name << " taking damage ";
+	if (this->hit_points < amount)
+		amount = this->hit_points;
 	this->hit_points -= amount;
 	cout << "(After taking damage the new HP is " << this->hit_points << ")." << endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	if (this->energy_points > 0) {
+	if (this->energy_points > 0 && this->hit_points > 0) {
 		cout << "ClapTrap " << this->name << " repairing it self (!This will cause an energy point!)" << endl;
 		this->hit_points += amount;
 		this->energy_points--;
 	}else
-		cout << "Not enough energy points" << endl;
+		cout << "Can not repair!"<< endl;
 }

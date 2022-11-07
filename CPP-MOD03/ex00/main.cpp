@@ -10,10 +10,10 @@ int main()
 	while(b.get_hp() && a.get_hp() && a.get_ep() && b.get_ep()) {
 		a.attack("Eyup");
 		b.takeDamage(a.get_attack());
-		b.beRepaired(a.get_attack() - 1);
+		b.beRepaired(a.get_attack() - 3);
 		b.attack("Burak");
 		a.takeDamage(b.get_attack());
-		a.beRepaired(b.get_attack() - 1);
-		sleep(5);
+		a.beRepaired(b.get_attack() - 3);
+		sleep(3);
 	}
 }

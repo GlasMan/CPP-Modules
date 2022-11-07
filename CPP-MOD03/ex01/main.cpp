@@ -5,13 +5,24 @@
 int main()
 {
 	ClapTrap a("Burak");
-	cout << "1" << endl;
+	cout << endl;
 	ScavTrap b("Eyup");
-	cout << "2" << endl;
+	cout << "********** scavtrap copy **********" << endl<<endl;
 	ScavTrap c(b);
-	cout << "3" << endl;
+	cout << endl;
 	a.set_attack(4);
 	b.guardGate();
 	b.attack("Burak");
-
+	a.takeDamage(b.get_attack());
+	cout << "after attack new hp is " << a.get_hp() << endl;
+	a.beRepaired(12);
+	//For "virtual" explanation
+	/*ClapTrap *p = new ClapTrap;
+	ScavTrap a;
+	p = &a;
+	cout << endl;
+	p->attack("Salih");
+	cout << endl;
+	p->attack("esat");
+	 */
 }

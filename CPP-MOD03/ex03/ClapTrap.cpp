@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() {
-	this->name = "";
+	this->name = "ClapTrap";
 	this->hit_points = 10;
 	this->energy_points = 10;
 	this->attack_damage = 0;
@@ -17,8 +17,8 @@ ClapTrap::ClapTrap(std::string name) {
 }
 
 ClapTrap::ClapTrap(const ClapTrap &cpy) {
-	*this = cpy;
 	cout << "ClapTrap Copy constructor called" << endl;
+	*this = cpy;
 }
 
 ClapTrap::~ClapTrap() {

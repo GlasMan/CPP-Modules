@@ -18,7 +18,7 @@ DiamondTrap::DiamondTrap(const std::string &name) {
 	cout << "DiamondTrap Constructor called" << endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &cpy) : ClapTrap(cpy), FragTrap(), ScavTrap(){
+DiamondTrap::DiamondTrap(const DiamondTrap &cpy) : ClapTrap(cpy), ScavTrap(), FragTrap(){
 	*this = cpy;
 }
 

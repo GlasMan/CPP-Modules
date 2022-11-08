@@ -24,10 +24,10 @@ class ClapTrap
 		virtual void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
-		void	set_attack(unsigned int damage) {attack_damage = damage;}
-		virtual unsigned int get_attack(){return  attack_damage;}
-		unsigned int get_hp(){return hit_points;}
-		unsigned int get_ep(){return energy_points;}
+		void	set_attack(unsigned int damage) {this->attack_damage = damage;}
+		virtual unsigned int get_attack(){return  this->attack_damage;}
+		virtual unsigned int get_hp(){return this->hit_points;}
+		virtual unsigned int get_ep(){return this->energy_points;}
 		virtual ClapTrap &operator= (const ClapTrap &cpy);
 };
 

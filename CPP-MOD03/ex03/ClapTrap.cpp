@@ -1,18 +1,10 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() {
-	this->name = "ClapTrap";
-	this->hit_points = 10;
-	this->energy_points = 10;
-	this->attack_damage = 0;
+ClapTrap::ClapTrap() : name("ClapTrap"), hit_points(10), energy_points(10), attack_damage(0) {
 	cout << "ClapTrap Default Constructor called" << endl;
 }
 
-ClapTrap::ClapTrap(std::string name) {
-	this->name = name;
-	this->hit_points = 10;
-	this->energy_points = 10;
-	this->attack_damage = 0;
+ClapTrap::ClapTrap(std::string name): name(name), hit_points(10), energy_points(10), attack_damage(0){
 	cout << "ClapTrap Constructor called" << endl;
 }
 

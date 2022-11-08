@@ -1,6 +1,10 @@
 NAME = diamondtrap
 
-SRC = main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp
+SRC = main.cpp		\
+      ClapTrap.cpp	\
+      ScavTrap.cpp	\
+      FragTrap.cpp	\
+      DiamondTrap.cpp	\
 
 OBJS = $(SRC:.cpp=.o)
 

@@ -17,7 +17,8 @@ Fixed::Fixed(const int nbr) {
 
 Fixed::Fixed(const float nbr) {
     cout << "Float constructor called" << endl;
-    fixed_point_nbr = ((int)(nbr * fixed_point));
+	//printf("\n%.8f\n", nbr);
+    fixed_point_nbr = ((int)roundf((nbr * fixed_point)));
 }
 Fixed::~Fixed(){
     cout << "Destructor called" << endl;
@@ -39,7 +40,7 @@ int Fixed::toInt() const {
 }
 
 float Fixed::toFloat() const {
-    return (((float)(fixed_point_nbr)) / fixed_point);
+    return (roundf((float)(fixed_point_nbr)) / (float)fixed_point);
 }
 
 int Fixed::getRawBits() const {

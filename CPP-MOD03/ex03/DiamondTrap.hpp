@@ -14,7 +14,6 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap(const DiamondTrap &cpy);
 		~DiamondTrap();
 
-		DiamondTrap &operator= (const DiamondTrap &cpy);
 		void attack(const std::string &target);
 		unsigned int get_attack(){return  this->attack_damage;}
 		unsigned int get_hp(){return this->hit_points;}

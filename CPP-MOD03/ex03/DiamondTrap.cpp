@@ -27,15 +27,6 @@ DiamondTrap::~DiamondTrap() {
 	cout << "DiamondTrap Destructor called" << endl;
 }
 
-DiamondTrap &DiamondTrap::operator=(const DiamondTrap &cpy) {
-	this->name = cpy.name;
-	this->ClapTrap::name = cpy.ClapTrap::name;
-	this->attack_damage = cpy.attack_damage;
-	this->energy_points = cpy.energy_points;
-	this->hit_points = cpy.hit_points;
-	return (*this);
-}
-
 void DiamondTrap::attack(const std::string &target) {
 	this->ScavTrap::attack(target);
 }

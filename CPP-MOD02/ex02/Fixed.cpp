@@ -13,11 +13,11 @@ Fixed::Fixed(const int nbr) {
 }
 
 Fixed::Fixed(const float nbr) {
-    fixed_point_nbr = ((int)(nbr * fixed_point));
+    fixed_point_nbr = (int)roundf((nbr * fixed_point));
 }
 Fixed::~Fixed(){}
 
-Fixed &Fixed::operator=(const Fixed &to_cpy) {
+Fixed &Fixed::operator=(const Fixed &to_cpy){
     this->fixed_point_nbr = to_cpy.getRawBits();
     return (*this);
 }
@@ -27,32 +27,29 @@ std::ostream &operator<<(std::ostream &os, const Fixed &to_out) {
     return os;
 }
 
-//Bool operators
-
-bool Fixed::operator>(const Fixed &gr) {
+bool Fixed::operator>(const Fixed &gr) const {
 	return (this->fixed_point_nbr > gr.fixed_point_nbr);
 }
 
-bool Fixed::operator<(const Fixed &ls) {
+bool Fixed::operator<(const Fixed &ls) const {
 	return (this->fixed_point_nbr < ls.fixed_point_nbr);
 }
 
-bool Fixed::operator>=(const Fixed &greq) {
+bool Fixed::operator>=(const Fixed &greq) const {
 	return (this->fixed_point_nbr >= greq.fixed_point_nbr);
 }
 
-bool Fixed::operator<=(const Fixed &lseq) {
+bool Fixed::operator<=(const Fixed &lseq) const {
 	return (this->fixed_point_nbr <= lseq.fixed_point_nbr);
 }
 
-bool Fixed::operator!=(const Fixed &noteq) {
+bool Fixed::operator!=(const Fixed &noteq) const {
 	return (this->fixed_point_nbr != noteq.fixed_point_nbr);
 }
 
-bool Fixed::operator==(const Fixed &eq) {
+bool Fixed::operator==(const Fixed &eq) const {
 	return (this->fixed_point_nbr == eq.fixed_point_nbr);
 }
-// Arithmetic Operators
 
 Fixed Fixed::operator+(const Fixed &to) const {
 	Fixed buff(this->toFloat() + to.toFloat());
@@ -73,8 +70,7 @@ Fixed Fixed::operator/(const Fixed &to) const {
 	return (buff);
 }
 
-// Increment and Decrement operators
-
+//pre
 Fixed &Fixed::operator++() {
 	this->fixed_point_nbr++;
 	return (*this);
@@ -82,10 +78,10 @@ Fixed &Fixed::operator++() {
 }
 
 Fixed &Fixed::operator--() {
-	this->fixed_point_nbr--;
+	this->fixed_point_nbr++;
 	return (*this);
 }
-
+// post
 Fixed Fixed::operator++(int) {
 	Fixed temp(*this);
 	this->fixed_point_nbr++;
@@ -101,7 +97,7 @@ Fixed Fixed::operator--(int) {
 //Member Functions
 
 const Fixed &Fixed::min(const Fixed &x, const Fixed &y) {
-	if ((Fixed)x < (Fixed)y)
+	if (x < y)
 		return x;
 	return y;
 }
@@ -119,7 +115,7 @@ Fixed &Fixed::min(Fixed &x, Fixed &y) {
 }
 
 const Fixed &Fixed::max(const Fixed &x, const Fixed &y) {
-	if ((Fixed)x > (Fixed)y)
+	if (x > y)
 		return x;
 	return y;
 }

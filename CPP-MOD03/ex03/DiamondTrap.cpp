@@ -3,13 +3,13 @@
 DiamondTrap::DiamondTrap() {
 	this->name = "Diamond";
 	this->ClapTrap::name = "DiamondTrap_clap_name";
-	this->FragTrap::hit_points = 100;
-	this->ScavTrap::energy_points = 50;
-	this->FragTrap::attack_damage = 30;
+    this->FragTrap::hit_points = 100;
+    this->ScavTrap::energy_points = 50;
+    this->FragTrap::attack_damage = 30;
 	cout << "DiamondTrap Default Constructor called" << endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string name) {
+DiamondTrap::DiamondTrap(const std::string name){
 	this->name = name;
 	this->ClapTrap::name = name + "_clap_name";
 	this->FragTrap::hit_points = 100;
@@ -18,7 +18,7 @@ DiamondTrap::DiamondTrap(const std::string name) {
 	cout << "DiamondTrap Constructor called" << endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &cpy) : ClapTrap(cpy), ScavTrap(cpy), FragTrap(cpy){
+DiamondTrap::DiamondTrap(const DiamondTrap &cpy){
 	cout << "DiamondTrap copy constructor called" << endl;
 	*this = cpy;
 }

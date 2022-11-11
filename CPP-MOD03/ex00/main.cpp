@@ -4,18 +4,28 @@
 int main()
 {
 	ClapTrap a("Burak");
-	ClapTrap b("Eyup");
+    cout << endl;
+
+    ClapTrap b("Eyup");
+    cout << endl;
+
+    cout << "Hit	point: " << a.get_hp() << endl;
+    cout << "Energy	point: " << a.get_ep() << endl;
+    cout << "Damage	point: " << a.get_attack() << endl << endl;
+
 	a.set_attack(4);
 	b.set_attack(5);
-	while(b.get_hp() && a.get_hp() && a.get_ep() && b.get_ep()) {
-		a.attack("Eyup");
-		if (a.get_ep() > 0 ||a.get_hp())
-			b.takeDamage(4);
-		b.beRepaired(3);
-		b.attack("Burak");
-		if (b.get_ep() && b.get_hp())
-			a.takeDamage(5);
-		a.beRepaired(3);
-		sleep(3);
-	}
+    cout << endl;
+
+    a.attack("Eyup");
+    b.takeDamage(a.get_attack());
+    cout << endl;
+
+    b.attack("Burak");
+    a.takeDamage(b.get_attack());
+    cout << endl;
+
+    a.beRepaired(3);
+    b.beRepaired(3);
+    cout << endl;
 }

@@ -11,8 +11,8 @@ FragTrap::FragTrap() : ClapTrap() {
 FragTrap::FragTrap(std::string name) : ClapTrap(name){
 	this->name = name;
 	this->hit_points = 100;
-	this->energy_points = 50;
-	this->attack_damage = 20;
+	this->energy_points = 100;
+	this->attack_damage = 30;
 	cout << "FragTrap Constructor called" << endl;
 }
 
@@ -34,5 +34,5 @@ FragTrap::~FragTrap() {
 }
 
 void FragTrap::highFivesGuys() {
-	cout << "Hey guys how about a high five???" << endl;
+	cout << "👋🏻 Hey guys how about a high five???" << endl;
 }

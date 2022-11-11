@@ -1,5 +1,5 @@
 #ifndef CLABTRAP_HPP
-#define CLABTRAP_HPP
+# define CLABTRAP_HPP
 
 
 #include <iostream>

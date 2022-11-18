@@ -1,5 +1,5 @@
-#ifndef CLABTRAP_HPP
-# define CLABTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 
 #include <iostream>
@@ -20,7 +20,7 @@ class ClapTrap
 		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &cpy);
-		virtual ~ClapTrap();
+		~ClapTrap();
 		virtual void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);

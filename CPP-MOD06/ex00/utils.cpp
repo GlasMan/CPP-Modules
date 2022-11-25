@@ -8,14 +8,12 @@ int get_size(char *av)
 	unsigned long x = 0;
 	const string s_nbr(av);
 	res = check_type(s_nbr);
-	if (res == 3) {
-		x = s_nbr.find('.');
-		f = s_nbr.find('f');
-		if (x != string::npos)
-			n = (s_nbr.substr(s_nbr.find("."), s_nbr.size())).size() - 1;
-		if (f != string::npos)
-			n--;
-	}
+	x = s_nbr.find('.');
+	f = s_nbr.find('f');
+	if (x != string::npos)
+		n = (s_nbr.substr(s_nbr.find("."), s_nbr.size())).size() - 1;
+	if (f != string::npos)
+		n--;
 	return n;
 }
 

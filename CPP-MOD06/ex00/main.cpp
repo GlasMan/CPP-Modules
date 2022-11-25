@@ -1,5 +1,11 @@
 #include "Convert.hpp"
 
+int	ft_isprint(int c)
+{
+	if (c < 32 || c == 127)
+		return (0);
+	return (1);
+}
 template <typename T>
 int convert(T nbr, int n)
 {
@@ -7,7 +13,7 @@ int convert(T nbr, int n)
 		n = 1;
 	if (nbr > 255 || nbr < 0)
 		cout << "char: impossible" << endl;
-	else if (!isprint(nbr))
+	else if (!ft_isprint(nbr))
 		cout << "char: Non displayable" << endl;
 	else
 		cout << "char: '" << static_cast<char> (nbr) << "'"<< endl;
@@ -38,11 +44,11 @@ int main(int ac, char **av)
 		return 0;
 	string str(av[1]);
 	if (strlen(av[1]) == 1)
-		convert(av[1][0], 0);
+		convert((atoi(av[1])), 0);
 	else
 	{
 		n = get_size(av[1]);
-		convert(atof(str.c_str()), n);
+		convert(atof(av[1]), n);
 	}
 	return 0;
 }

@@ -1,4 +1,4 @@
-NAME = convert
+NAME = seri
 
 SRC = main.cpp utils.cpp
 

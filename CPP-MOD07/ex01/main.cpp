@@ -1,22 +1,23 @@
 #include "iter.hpp"
 
-int main()
+class Awesome
 {
-	int arr[] = {1, 2, 3, 4, 5};
-	iter(arr, 5, increase);
-	for (int i = 0; i < 5; i++)
-		cout << arr[i] << ", ";
-	cout << endl << endl;
-	float arr1[] = {1.43, 2.12, 3.4, 4.1, 5.6556};
-	iter(arr1, 5, increase);
-	for (int i = 0; i < 5; i++)
-		cout << arr1[i] << ", ";
-	cout << endl << endl;
+public:
+	Awesome( void ) : _n( 42 ) { return; }
+	int get( void ) const { return this->_n; }
+private:
+	int _n;
+};
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
+template< typename T >
+void print( T const & x ) { std::cout << x << std::endl; return; }
 
-	string *arr2 = new string[3];
-	arr2[0] = "Hi";
-	arr2[1] = "Hello";
-	arr2[2] = "How are you";
-	iter(arr2, 3, print_it);
-	cout << endl << endl;
+int main() {
+	int tab[] = { 0, 1, 2, 3, 4 };  // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+	Awesome tab2[5];
+
+	iter( tab, 5, print<int> );
+	iter( tab2, 5, print<Awesome> );
+
+	return 0;
 }

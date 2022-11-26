@@ -20,7 +20,7 @@ void swap(T &a, T &b)
 template <typename T>
 T min(T x, T y)
 {
-	if (x > y)
+	if (x >= y)
 		return y;
 	return x;
 }

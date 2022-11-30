@@ -26,16 +26,24 @@ void Span::addNumber(int n) {
 }
 
 int Span::longestSpan() {
+	if (_container.size() < 2)
+		throw vecIsFull();
 	return (*max_element(_container.begin(), _container.end()) - *min_element(_container.begin(), _container.end()));
 }
 
 int Span::shortestSpan() {
-	std::sort(_container.begin(), _container.end());
-	//cout << "Begin: " << *_container.begin() << endl;
-	//cout << "end: " << *_container.rbegin() << endl;
+
+	vector<int> vec(_container);
+	int min = INT_MAX;
+
 	if (_container.size() < 2)
-		throw Span::vecIsFull();
-	return (abs(*_container.begin() - *(++_container.begin())));
+		throw vecIsFull();
+	std::sort(vec.begin(), vec.end());
+	for (unsigned int i = 0; i < vec.size(); i++){
+		if (abs(vec[i] - vec[i + 1]) < min)
+			min = abs(vec[i] - vec[i + 1]);
+	}
+	return min;
 }
 
 void Span::print_vec() {
